@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { AuthProvider, useAuth } from './context/AuthContext';
 import QrScannerScreen from './assets/screens/QrScannerScreen';
@@ -46,19 +46,16 @@ function HomeScreen({ navigation }) {
   const { logout } = useAuth();
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontSize: 20, marginBottom: 20 }}>Bem-vindo ao App</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Onde deseja ir?</Text>
 
-      <Button
-        title="Abrir Scanner de QR Code"
-        onPress={() => navigation.navigate('QR Scanner')}
-      />
+      <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('QR Scanner')}>
+        <Text>Abrir Scanner de QR Code</Text>
+      </TouchableOpacity>
 
-      <Button
-        title="Tela Funcionários"
-        onPress={() => navigation.navigate('Funcionarios')}
-        style={{ marginTop: 20 }}
-      />
+      <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Funcionarios')}>
+        <Text>Tela Funcionário</Text>
+      </TouchableOpacity>
 
       <View style={{ marginTop: 20 }}>
         <Button title="Sair" color="red" onPress={logout} />
@@ -66,3 +63,38 @@ function HomeScreen({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { 
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#87ceeb',
+  },
+  title: {
+     fontSize: 20,
+     marginBottom: 20
+  },
+  button1: {
+   borderRadius:  30,
+    borderWidth: 1,
+    borderColor: '#32cd32',
+    padding: 10,
+    marginBottom: 7,
+    width: '50%',//tamanho botao
+    backgroundColor: '#48d1cc',
+    textAlign: 'center'
+  },
+  button2: {
+   borderRadius:  30,
+    borderWidth: 1,
+    borderColor: '#32cd32',
+    padding: 10,
+    marginBottom: 7,
+    width: '50%',//tamanho botao
+    backgroundColor: '#48d1cc',
+    textAlign: 'center'
+  },
+});
+
+
