@@ -36,11 +36,11 @@ export default function UserDetails({
     </View>
   );
 }
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
   qrCodeContainer: {
      marginTop: '5%',
      alignItems: 'center',
-     height: '65%',
+     height: '44%',
      //backgroundColor:
      borderColor: '#7ee0e2',
      borderWidth: 3,

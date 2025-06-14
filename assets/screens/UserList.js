@@ -1,19 +1,21 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { ScrollView, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 
 export default function UserList({ users, search, setSearch, selectedUser, onUserPress }) {
   const filteredUsers = users.filter(u => u.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <>
-      <TextInput
+    <View style={styles.container}>
+      
+      <ScrollView style={styles.scrollContainer}>
+        <Text style={styles.subtitle}>Funcionários:</Text>
+        <TextInput
         style={styles.input}
         placeholder="Buscar por nome"
         value={search}
         onChangeText={setSearch}
       />
-      <ScrollView style={styles.scrollContainer}>
-        <Text style={styles.subtitle}>Funcionários:</Text>
         {filteredUsers.map(user => (
           <TouchableOpacity
             key={user.id}
@@ -25,6 +27,7 @@ export default function UserList({ users, search, setSearch, selectedUser, onUse
           </TouchableOpacity>
         ))}
       </ScrollView>
+      </View>
     </>
   );
 }
@@ -41,10 +44,17 @@ const styles = StyleSheet.create({
     marginBottom: 15, 
     backgroundColor: '#fff' 
   },
-  scrollContainer: { maxHeight: 200 },
+  scrollContainer:{
+    maxHeight: 250,
+     
+  },
   subtitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
   userItem: { padding: 10, backgroundColor: '#eaeaea', borderRadius: 5, marginBottom: 10 },
   selectedUserItem: { backgroundColor: '#d0e6ff' },
   userName: { fontWeight: 'bold' },
   userPosition: { fontStyle: 'italic' },
+
+  container: {
+   backgroundColor: '#3eccc2',
+  },
 });

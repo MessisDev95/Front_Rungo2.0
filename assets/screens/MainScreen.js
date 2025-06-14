@@ -80,7 +80,7 @@ export default function MainScreen() {
       setUsers([...users, newUser]);
     }
     setName('');
-    setPosition('Professor');
+    setPosition('Professor'); //picker?<<<<<<<<<<<<<<<<<<<<<<<<<<<
   };
 
   const handleUserPress = (user) => {
@@ -142,7 +142,7 @@ export default function MainScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Cadastro de Funcionários</Text>
 
-      <UserForm
+      <UserForm //cadastrador
         name={name}
         setName={setName}
         position={position}
@@ -151,15 +151,7 @@ export default function MainScreen() {
         onSubmit={handleRegister}
       />
 
-      <UserList
-        users={users}
-        search={search}
-        setSearch={setSearch}
-        selectedUser={selectedUser}
-        onUserPress={handleUserPress}
-      />
-
-      <UserDetails
+    <UserDetails // Qrcode
         selectedUser={selectedUser}
         scanLog={scanLog}
         onCopy={copyToClipboard}
@@ -167,12 +159,22 @@ export default function MainScreen() {
         onEdit={handleEdit}
         onDelete={handleDelete}
         qrRef={qrRef}
+      /> 
+
+      <UserList //Listagem com busca
+        users={users}
+        search={search}
+        setSearch={setSearch}
+        selectedUser={selectedUser}
+        onUserPress={handleUserPress}
       />
+
+     
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#f0f0f0' },
+  container: { flex: 1, padding: 20, backgroundColor: '#22b483' },
   title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
 });

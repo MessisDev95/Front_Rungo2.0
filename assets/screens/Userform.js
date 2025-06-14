@@ -30,7 +30,7 @@ export default function UserForm({ name, setName, position, setPosition, editMod
 const styles = StyleSheet.create({
   formContainer: { 
     marginBottom: 20,
-    backgroundColor: 'green',
+    backgroundColor: '#3eccc2',
 
 
   },
@@ -43,8 +43,14 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     backgroundColor: '#7ee0e2',
   },
-  pickerContainer: { marginBottom: 15 },
-  pickerLabel: { marginBottom: 5, fontSize: 16 },
+  pickerContainer: {
+     marginBottom: 15 
+    },
+
+  pickerLabel:{
+     marginBottom: 5,
+     fontSize: 16 },
+
   picker: {
     width: '100%',
     backgroundColor: '#fff',
