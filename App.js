@@ -60,7 +60,7 @@ function HomeScreen({ navigation }) {
       </TouchableOpacity>
 
       <View style={{ marginTop: 20 }}>
-        <Button title="Sair" color="red" onPress={logout} />
+        <Button title="Logout" color="red" onPress={logout} />
       </View>
     </View>
   );

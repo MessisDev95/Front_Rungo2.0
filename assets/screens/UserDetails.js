@@ -16,7 +16,7 @@ export default function UserDetails({
   return (
     <View style={styles.qrCodeContainer}>
       <Text style={styles.qrTitle}>
-        {selectedUser.name} - {selectedUser.position}
+        Nome: {selectedUser.name}   Cargo: {selectedUser.position}
       </Text>
 
       <QRCode
@@ -37,7 +37,28 @@ export default function UserDetails({
   );
 }
 const styles = StyleSheet.create({
-  qrCodeContainer: { marginTop: 10, alignItems: 'center' },
-  qrTitle: { fontSize: 16, marginBottom: 5 },
-  buttonRow: { flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 },
+  qrCodeContainer: {
+     marginTop: '5%',
+     alignItems: 'center',
+     height: '65%',
+     //backgroundColor:
+     borderColor: '#7ee0e2',
+     borderWidth: 3,
+     backgroundColor: '#7ee0e2'
+
+  },
+  qrTitle: { 
+     fontSize: 16,
+     marginBottom: 5
+
+     },
+  buttonRow: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-around', 
+    marginVertical: 10 
+
+  },
+
+
 });
+
