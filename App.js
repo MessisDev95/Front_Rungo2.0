@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Button, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 import { AuthProvider, useAuth } from './context/AuthContext';
 import QrScannerScreen from './assets/screens/QrScannerScreen';
@@ -47,6 +47,8 @@ function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <Image style={styles.image} source={require('./assets/images/rungo_logo_semfungo.png')}/>
+
       <Text style={styles.title}>Onde deseja ir?</Text>
 
       <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('QR Scanner')}>
@@ -94,6 +96,17 @@ const styles = StyleSheet.create({
     width: '50%',//tamanho botao
     backgroundColor: '#48d1cc',
     textAlign: 'center'
+  },
+  image: {
+    height: '20%',
+    width:'50%',
+    textAlign: 'center',
+    alignItems: 'center',
+    resizeMode: 'contain',
+    justifyContent: 'center',
+    flex: 'flex-start',
+    marginTop: '-35%',
+    margin: 30,
   },
 });
 
