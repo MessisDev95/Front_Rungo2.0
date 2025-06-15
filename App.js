@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import QrScannerScreen from './assets/screens/QrScannerScreen';
 import LoginScreen from './assets/screens/LoginScreen';
 import MainScreen from './assets/screens/MainScreen'; // Importa o MainScreen
+import SigninScreen from './assets/screens/SigninScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,7 @@ function MainNavigator() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="QR Scanner" component={QrScannerScreen} />
           <Stack.Screen name="Funcionarios" component={MainScreen} />
+          <Stack.Screen name="Cadastro" component={SigninScreen} />
         </>
       )}
     </Stack.Navigator>
@@ -56,7 +58,11 @@ function HomeScreen({ navigation }) {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Funcionarios')}>
-        <Text>Tela Funcionário</Text>
+        <Text>Lista de funcionários</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Cadastro')}>
+        <Text>Cadastro de funcionário</Text>
       </TouchableOpacity>
 
       <View style={{ marginTop: 20 }}>

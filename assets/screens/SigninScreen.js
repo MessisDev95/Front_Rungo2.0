@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, Alert, Button, StyleSheet } from 'react-native';
+import { View, Text, Alert, Button, StyleSheet, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Clipboard from 'expo-clipboard';
 import * as Sharing from 'expo-sharing';
@@ -7,17 +7,14 @@ import * as FileSystem from 'expo-file-system';
 import QRCode from 'react-native-qrcode-svg';
 
 import UserForm from './Userform';
-import UserList from './UserList';
-import UserDetails from './UserDetails';
+
 
 export default function MainScreen() {
   const [name, setName] = useState('');
   const [position, setPosition] = useState('Professor');
   const [users, setUsers] = useState([]);
-  const [search, setSearch] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [editMode, setEditMode] = useState(false);
-  const [scanLog, setScanLog] = useState({});
   const qrRef = useRef();
 
   useEffect(() => {
@@ -140,27 +137,16 @@ export default function MainScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Funcionários cadastrados:</Text>
+      <Image style={styles.image} source={require('../images/rungo_logo_semfungo.png')}/>
+      <Text style={styles.title}>Cadastro de Funcionários</Text>
 
-      
-      
-
-    <UserDetails // Qrcode
-        selectedUser={selectedUser}
-        scanLog={scanLog}
-        onCopy={copyToClipboard}
-        onShare={shareQRCode}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-        qrRef={qrRef}
-      /> 
-
-      <UserList //Listagem com busca
-        users={users}
-        search={search}
-        setSearch={setSearch}
-        selectedUser={selectedUser}
-        onUserPress={handleUserPress}
+      <UserForm //cadastrador
+        name={name}
+        setName={setName}
+        position={position}
+        setPosition={setPosition}
+        editMode={editMode}
+        onSubmit={handleRegister}
       />
 
      
@@ -169,6 +155,30 @@ export default function MainScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#22b483' },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: 'white',
+
+    },
+
+  title: { 
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center'
+
+    },
+
+  image: {
+    height: '20%',
+    width:'55%',
+    textAlign: 'center',
+    alignItems: 'center',
+    resizeMode: 'contain',
+    justifyContent: 'center',
+    flex: 'flex-start',
+    marginTop: '5%',
+    margin: 85,
+  },
 });

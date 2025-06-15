@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff' 
   },
   scrollContainer:{
-    maxHeight: 250,
+    maxHeight: '80%',
      
   },
   subtitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
@@ -56,5 +56,6 @@ const styles = StyleSheet.create({
 
   container: {
    backgroundColor: '#3eccc2',
+   padding: 10,
   },
 });
